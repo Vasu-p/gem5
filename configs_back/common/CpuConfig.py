@@ -119,18 +119,13 @@ for name, cls in inspect.getmembers(m5.objects, is_cpu_class):
 
 from m5.defines import buildEnv
 from importlib import import_module
-#print("buildEnv[TARGET_ISA] is :: " + buildEnv['TARGET_ISA'])
 for package in [ "generic", buildEnv['TARGET_ISA']]:
-    #print("going here -- " + package)
     try:
         package = import_module(".cores." + package, package=__package__)
     except ImportError:
-        #print("error loaidng package")
         # No timing models for this ISA
         continue
-    #print("found some package")
+
     for mod_name, module in inspect.getmembers(package, inspect.ismodule):
-		#print("going here: loop of getmembers() of package")
-		for name, cls in inspect.getmembers(module, is_cpu_class):
-			#print("here: loop of get members of module")
-			_cpu_classes[name] = cls
+        for name, cls in inspect.getmembers(module, is_cpu_class):
+            _cpu_classes[name] = cls

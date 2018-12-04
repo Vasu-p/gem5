@@ -1,0 +1,6 @@
+scons -j$(nproc) --ignore-style build/X86/gem5.fast
+#rm -f /usr/local/bin/gem5.opt
+mv build/X86/gem5.fast /usr/local/bin
+rm -rf build
+mkdir -p build/X86
+ln -s /usr/local/bin/gem5.fast build/X86/gem5.opt
