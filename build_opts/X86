@@ -1,4 +1,4 @@
 TARGET_ISA = 'x86'
-CPU_MODELS = 'AtomicSimpleCPU,InOrderCPU,O3CPU,TimingSimpleCPU'
+CPU_MODELS = 'AtomicSimpleCPU,InorderCPU,O3CPU,TimingSimpleCPU'
 PROTOCOL = 'MI_example'
 M5_BUILD_CACHE = 'True'
